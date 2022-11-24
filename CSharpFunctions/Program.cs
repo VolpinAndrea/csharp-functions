@@ -1,19 +1,18 @@
 ﻿/*In questo esercizio vi chiedo di definire qualche funzione di utilità che poi potete usare per poter fare operazioni complesse nei vostri programmi principali.
 Scrivete nel vostro programma principale Program.cs le seguenti funzioni di base:
-
 Attenzione: è importante restituire un nuovo array, e non modificare l’array come parametro della funzione! Vi ricordate perchè? Pensateci (vedi slide)
-int sommaElementiArray(int[] array): che preso un array di numeri interi, restituisca la somma totale di tutti gli elementi dell’array.
 Una volta completate queste funzioni di utilità di base, e dato il seguente array di numeri [2, 6, 7, 5, 3, 9] già dichiarato nel vostro codice, si vogliono utilizzare le funzioni per:
 Stampare l’array di numeri fornito a video
 Stampare l’array di numeri fornito a video, dove ogni numero è stato prima elevato al quadrato (Verificare che l’array originale non sia stato modificato quindi ristampare nuovamente l’array originale e verificare che sia rimasto [2, 6, 7, 5, 3, 9])
 Stampare la somma di tutti i numeri
 Stampare la somma di tutti i numeri elevati al quadrati*/
 
-int[] numeri = { 12, 23, 34, 56, 12 };
+int[] numeri = { 2, 6, 7, 5, 3, 9};
 StampaArrayInteri(numeri);
-Console.WriteLine(Quadrato(numeri[0]));
 StampaArrayInteri(ElevaArrayAlQuadrato(numeri));
-
+StampaArrayInteri(numeri);
+Console.WriteLine(sommaElementiArray(numeri));
+Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(numeri)));
 
 //-------FUNZIONI------------------------------------------------
 
@@ -44,10 +43,29 @@ int Quadrato(int numero)
 /*int[] ElevaArrayAlQuadrato(int[] array): che preso un array di numeri interi, restituisca un nuovo array con tutti gli elementi elevati quadrato.*/
 int[] ElevaArrayAlQuadrato(int[] array)
 {
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = Quadrato(array[i]);
-    }
-    return array;
+    int[] copia = (int[])array.Clone(); 
 
+    for (int i = 0; i < copia.Length; i++)
+    {
+        copia[i] = Quadrato(copia[i]);
+    }
+    return copia;
+
+}
+/*int sommaElementiArray(int[] array): che preso un array di numeri interi, restituisca la somma totale di tutti gli elementi dell’array.*/
+int sommaElementiArray(int[] array)
+{
+    int somma = 0;
+
+    /*for (int i = 0; i <= array.Length; i++)
+    {
+        somma += array[i];
+    }*/
+
+    foreach(int elemento in array)
+    {
+        somma += elemento;
+    }
+
+    return somma;
 }

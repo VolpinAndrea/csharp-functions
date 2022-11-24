@@ -8,10 +8,15 @@ Stampare la somma di tutti i numeri
 Stampare la somma di tutti i numeri elevati al quadrati*/
 
 int[] numeri = { 2, 6, 7, 5, 3, 9};
+Console.WriteLine("ARRAY INIZIALE:");
 StampaArrayInteri(numeri);
+Console.WriteLine("ARRAY AL QUADRATO:");
 StampaArrayInteri(ElevaArrayAlQuadrato(numeri));
+Console.WriteLine("ARRAY INIZIALE INVARIATO:");
 StampaArrayInteri(numeri);
+Console.WriteLine("SOMMA ELEMENTI ARRAY INIZIALE:");
 Console.WriteLine(sommaElementiArray(numeri));
+Console.WriteLine("SOMMA ELEMENTI ARRAY AL QUADRATO:");
 Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(numeri)));
 
 //-------FUNZIONI------------------------------------------------
